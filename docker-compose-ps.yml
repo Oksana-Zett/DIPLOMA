@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  node-app:
+    build: ./artifacts/gate-simulator
+    image: node:alpine
+    ports:
+        - '9999:9999'
+  postgresql:
+    image: postgres:alpine
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./data:/var/lib/postgres
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=9mREsvXDs9Gk89Ef
